@@ -6,6 +6,7 @@ from score import Scores
 
 def run():
     pygame.init()
+    shot_sound = pygame.mixer.Sound("sound/shot.ogg")
     screen = pygame.display.set_mode((700, 800))
     pygame.display.set_caption("Alien Shooter")
     bg_color = (0, 0, 0)
@@ -18,7 +19,7 @@ def run():
 
 
     while True:
-        controls.events(screen, gun, bullets)
+        controls.events(screen, gun, bullets, shot_sound)
         if stats.run_game:
             gun.update_gun()
             controls.screen_update(bg_color, screen, stats, sc, gun, aliens, bullets)

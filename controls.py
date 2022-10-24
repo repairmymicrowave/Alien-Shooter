@@ -4,7 +4,7 @@ from alien import Alien
 import time
 
 
-def events(screen, gun, bullets):
+def events(screen, gun, bullets, shot_sound):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
@@ -14,6 +14,7 @@ def events(screen, gun, bullets):
             elif event.key == pygame.K_a:
                 gun.mleft = True
             elif event.key == pygame.K_SPACE:
+                shot_sound.play()
                 new_bullet = Bullet(screen, gun)
                 bullets.add(new_bullet)
         elif event.type == pygame.KEYUP:
